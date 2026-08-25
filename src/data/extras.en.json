@@ -1,0 +1,477 @@
+{
+  "negativePrompts": [
+    {
+      "id": "neg-text",
+      "tag": "No stray text",
+      "primary": "no on-screen text, no watermark",
+      "secondary": "不要新增字幕、水印或无关文字"
+    },
+    {
+      "id": "neg-post",
+      "tag": "Subtitles in post",
+      "primary": "keep the image textless; subtitles added in post",
+      "secondary": "画面保持无文字，字幕后期添加"
+    },
+    {
+      "id": "neg-logo",
+      "tag": "Lock product look",
+      "primary": "keep the logo, label, and shape unchanged",
+      "secondary": "严格保持logo、标签、形状和颜色不变"
+    },
+    {
+      "id": "neg-scope",
+      "tag": "Limit change scope",
+      "primary": "change only action, light, and camera",
+      "secondary": "仅改变动作、光线和镜头"
+    },
+    {
+      "id": "neg-copy",
+      "tag": "Reference, don't copy",
+      "primary": "do not copy person, scene, or brand",
+      "secondary": "不复制人物、场景或品牌"
+    }
+  ],
+  "negationRule": {
+    "quoteEn": "Naming a flaw plants it.",
+    "explanation": ": instead of writing no blur / no extra fingers, lock the frame positively.",
+    "positives": [
+      "hands rest still on the table",
+      "clean unbroken label",
+      "empty sky above the skyline"
+    ],
+    "usage": "Write negation only in the platform's dedicated constraint slot (`no on-screen text, no watermark`) — never as quality insurance.",
+    "source": "Seedance 2.0 Skill OS · anti-slop-lexicon.md (Negation Rule)"
+  },
+  "writingTips": [
+    {
+      "title": "Principle 1: Put the camera-move instruction first",
+      "body": "AI weights the beginning of a prompt more heavily. Write \"orbiting shot, the frame circles…\" before describing the scene. Never bury the camera move mid-paragraph or at the end."
+    },
+    {
+      "title": "Principle 2: Define the start and end frames",
+      "body": "Don't just write \"push in.\" Write \"push from a wide shot to an eye close-up\" — give the AI a clear starting picture and ending picture. The clearer both endpoints, the better the AI knows how to \"walk.\""
+    },
+    {
+      "title": "Principle 3: Add one speed word",
+      "body": "\"Slowly push in\" and \"rapidly push in\" are two entirely different emotions. Slow = tender, elegant, suspenseful. Fast = tense, impactful, startling. One speed word sets the tone."
+    },
+    {
+      "title": "Principle 4: Camera move + mood keyword is the golden pair",
+      "body": "A camera move alone is a technical instruction; add a mood keyword and it becomes a creative one. E.g. \"slow push-in, heavy suffocating atmosphere\", \"orbiting shot, epic ceremonial feel\". Together they help the AI grasp the feeling, not just the motion."
+    },
+    {
+      "title": "Principle 5: At most 1–2 camera moves per prompt",
+      "body": "For a clip under 15 seconds, 1–2 moves are already rich. Pile on more and the AI loses track, muddying the frame. For complex shot language, split into multiple generations and stitch in post."
+    }
+  ],
+  "usageAdvice": {
+    "headline": "For clips under 15 seconds, stick to 1–2 camera moves — the footage will be steadier.",
+    "rest": [
+      "Pick a camera move first, then replace the bracketed subject, scene, mood, and style in the template.",
+      "When copying a prompt, keep the four ingredients — start, end, speed, mood — and results usually stay controllable."
+    ]
+  },
+  "glossary": [
+    {
+      "fn": "Camera moves",
+      "primary": "slow push-in",
+      "secondary": "缓慢推镜"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "pull back to reveal the space",
+      "secondary": "镜头后拉揭示空间"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "stable lateral tracking",
+      "secondary": "横向稳定跟拍"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "slider / dolly lateral move",
+      "secondary": "轨道平移"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "arc orbit shot",
+      "secondary": "弧形绕摄"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "handheld shot with slight breathing sway",
+      "secondary": "手持镜头，轻微呼吸晃动"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "one continuous long take",
+      "secondary": "一镜到底长镜头"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "low-angle shot",
+      "secondary": "低角度仰拍"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "high-angle shot",
+      "secondary": "高角度俯拍"
+    },
+    {
+      "fn": "Camera moves",
+      "primary": "over-the-shoulder shot",
+      "secondary": "过肩镜头"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "locked medium shot",
+      "secondary": "固定中景"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "medium close-up",
+      "secondary": "中近景"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "macro close-up",
+      "secondary": "微距特写"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "wide establishing shot",
+      "secondary": "远景定场镜头"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "three-quarter profile",
+      "secondary": "四分之三侧脸"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "rule-of-thirds composition",
+      "secondary": "三分法构图"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "large negative space, isolation",
+      "secondary": "大面积负空间，孤独感"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "subject seen past foreground blur",
+      "secondary": "前景虚化遮挡"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "leading lines pointing to the focus",
+      "secondary": "引导线指向焦点"
+    },
+    {
+      "fn": "Framing & composition",
+      "primary": "distinct foreground, midground, background layers",
+      "secondary": "前中后景层次分明"
+    },
+    {
+      "fn": "Lens feel",
+      "primary": "telephoto compression",
+      "secondary": "长焦压缩空间"
+    },
+    {
+      "fn": "Lens feel",
+      "primary": "wide-angle spatial feel",
+      "secondary": "广角空间感"
+    },
+    {
+      "fn": "Lens feel",
+      "primary": "focus resolves from blur to sharpness",
+      "secondary": "焦点从模糊过渡到清晰"
+    },
+    {
+      "fn": "Light",
+      "primary": "sunlight dappled through leaves",
+      "secondary": "树叶间洒下的斑驳光"
+    },
+    {
+      "fn": "Light",
+      "primary": "soft side backlight",
+      "secondary": "柔和侧逆光"
+    },
+    {
+      "fn": "Light",
+      "primary": "warm practical light",
+      "secondary": "暖色实用灯"
+    },
+    {
+      "fn": "Light",
+      "primary": "warm practical light from left",
+      "secondary": "左侧暖色实用灯"
+    },
+    {
+      "fn": "Light",
+      "primary": "cool moon rim light",
+      "secondary": "冷色月光轮廓光"
+    },
+    {
+      "fn": "Light",
+      "primary": "volumetric light through mist",
+      "secondary": "体积光穿过薄雾"
+    },
+    {
+      "fn": "Light",
+      "primary": "wet ground reflects neon",
+      "secondary": "潮湿地面反射霓虹"
+    },
+    {
+      "fn": "Action",
+      "primary": "footsteps disturb fog",
+      "secondary": "脚步带动薄雾扩散"
+    },
+    {
+      "fn": "Action",
+      "primary": "droplets merge and slide down",
+      "secondary": "水珠聚合后沿表面下滑"
+    },
+    {
+      "fn": "Action",
+      "primary": "slow head turn and stop",
+      "secondary": "缓慢转头并停住"
+    },
+    {
+      "fn": "Action",
+      "primary": "fabric moves naturally with action",
+      "secondary": "衣料随动作自然摆动"
+    },
+    {
+      "fn": "FX",
+      "primary": "gold particles rise and dissipate",
+      "secondary": "金色粒子升起后消散"
+    },
+    {
+      "fn": "FX",
+      "primary": "blue arcs crawl along the edge",
+      "secondary": "蓝色电弧沿边缘游走"
+    },
+    {
+      "fn": "FX",
+      "primary": "light sweep travels across material",
+      "secondary": "光线扫过材质表面"
+    },
+    {
+      "fn": "Sound",
+      "primary": "one short clear spoken line",
+      "secondary": "一句短而清晰的对白"
+    },
+    {
+      "fn": "Sound",
+      "primary": "no music, low ambience only",
+      "secondary": "无配乐，仅低环境声"
+    },
+    {
+      "fn": "Sound",
+      "primary": "locked camera during dialogue",
+      "secondary": "对白期间镜头固定"
+    },
+    {
+      "fn": "Sound",
+      "primary": "footsteps hit the beat",
+      "secondary": "脚步声卡点"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Image 1 is the first frame",
+      "secondary": "@图片1 为首帧"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Image 2 is the last frame",
+      "secondary": "@图片2 为尾帧"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Image 1 locks subject identity",
+      "secondary": "@图片1 锁定主体身份"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Image 2 provides scene mood only",
+      "secondary": "@图片2 仅参考场景氛围"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Video 1 provides camera movement only",
+      "secondary": "@视频1 仅参考运镜"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Video 1 provides action rhythm",
+      "secondary": "@视频1 参考动作节奏"
+    },
+    {
+      "fn": "Reference tags",
+      "primary": "Audio 1 provides tempo and mood",
+      "secondary": "@音频1 参考节奏和氛围"
+    },
+    {
+      "fn": "First/last frame",
+      "primary": "keep first frame unchanged",
+      "secondary": "首帧保持不变"
+    },
+    {
+      "fn": "First/last frame",
+      "primary": "transition naturally to final frame",
+      "secondary": "自然过渡到尾帧"
+    },
+    {
+      "fn": "First/last frame",
+      "primary": "continuous in-between motion, no jump cut",
+      "secondary": "中间动作连续，不跳切"
+    },
+    {
+      "fn": "First/last frame",
+      "primary": "use final frame as the target image",
+      "secondary": "以尾帧为最终画面目标"
+    },
+    {
+      "fn": "Constraints",
+      "primary": "preserve logo, label, shape, and color",
+      "secondary": "严格保持logo、标签、形状和颜色不变"
+    },
+    {
+      "fn": "Constraints",
+      "primary": "change only action, light, and camera",
+      "secondary": "仅改变动作、光线和镜头"
+    },
+    {
+      "fn": "Constraints",
+      "primary": "do not copy person, scene, or brand",
+      "secondary": "不复制人物、场景或品牌"
+    },
+    {
+      "fn": "Text",
+      "primary": "no new subtitles, watermark, or unrelated text",
+      "secondary": "不要新增字幕、水印或无关文字"
+    },
+    {
+      "fn": "Text",
+      "primary": "keep image textless; subtitles added in post",
+      "secondary": "画面保持无文字，字幕后期添加"
+    }
+  ],
+  "slopIntro": "Community consensus: abstract \"vibe words\" leave the model unable to tell which element to emphasize. Break vibe words into the physical elements that create the feeling — texture, light, color, air — and the image immediately stabilizes.",
+  "slopTraps": [
+    {
+      "bad": "cinematic",
+      "good": "Write shot size, camera move, light source, and grade: wide establishing shot, slow push-in, low warm sunlight, desaturated teal-orange"
+    },
+    {
+      "bad": "moody atmosphere",
+      "good": "Write the physical elements that create the mood: thin mist, backlit rim light, wet-ground reflections, low ambience"
+    },
+    {
+      "bad": "premium feel",
+      "good": "Write how light and material behave: soft side light, controlled reflections, clean background, brushed-metal texture"
+    },
+    {
+      "bad": "blockbuster feel",
+      "good": "Write physical scale: crowd size, camera distance, building height"
+    },
+    {
+      "bad": "texture (alone)",
+      "good": "Name which texture: frosted glass, light-absorbing velvet, paper fiber"
+    },
+    {
+      "bad": "stunning",
+      "good": "Write the one visual contrast or reveal that stuns"
+    },
+    {
+      "bad": "beautiful",
+      "good": "Write the concrete behavior of color, composition, and light"
+    },
+    {
+      "bad": "epic",
+      "good": "Delete it, or replace with concrete spatial scale and headcount"
+    },
+    {
+      "bad": "ultra HD / 8K / 4K",
+      "good": "Delete; resolution is a parameter, not a description"
+    },
+    {
+      "bad": "masterpiece / top quality",
+      "good": "Delete; quality isn't requested into existence"
+    },
+    {
+      "bad": "breathtakingly beautiful",
+      "good": "Write the single most important visual detail"
+    },
+    {
+      "bad": "cool transitions",
+      "good": "Name the transition: match cut, hard cut, whip pan"
+    }
+  ],
+  "templates": [
+    {
+      "name": "Compact template",
+      "desc": "Reference image + change scope + camera + sound, said in one sentence",
+      "text": "@Image1 as reference, strictly keep [subject/product/face/logo] unchanged; only add [action/light/camera change]. Camera: [one action]. Sound: [SFX or ambience]."
+    },
+    {
+      "name": "Multimodal reference template",
+      "desc": "Image / video / audio each play their part — identity locked without copying the reference",
+      "text": "@Image1 locks the original character's identity and outfit. @Video1 provides camera movement only; do not copy its person, location, or brand. @Audio1 provides tempo and mood only."
+    },
+    {
+      "name": "Timeline template",
+      "desc": "Long-prompt skeleton for 8+ seconds (common in the Jimeng/Dreamina community, field-observed)",
+      "text": "[Style] [medium, texture, palette — one sentence]\n[Timeline] 0-3s: [frame + camera + sound]; 3-6s: [frame + camera + sound]; 6-10s: [frame + camera + sound]\n[Sound] [dialogue / ambience / SFX / no music]\n[References] @Image1 locks subject identity; @Video1 camera movement only; @Audio1 tempo only"
+    }
+  ],
+  "workedExample": {
+    "bad_label": "❌ Chasing \"cinematic\" (adjective pile-up)",
+    "good_label": "✅ Direct like a director (observable detail)",
+    "bad": "epic cinematic shot of a woman reading a letter, emotional, beautiful lighting",
+    "good": "Medium close-up, eye-level; she lowers the letter and her hands go still as a slow push-in arrives; soft window light behind her keeps her face plain; near-silence with one chair scrape — the realization lands in the stilled hands, not a word.",
+    "note": "Translate \"emotion\" into shot size, camera position, action, light, and sound, and the model knows what to emphasize."
+  },
+  "assembler": {
+    "joiner": ", ",
+    "ending": ".",
+    "negativeSuffix": "no new subtitles, watermark, or unrelated text.",
+    "scenes": [
+      "City streets as the lights come on",
+      "A warm café window seat",
+      "A beach at sunset",
+      "An old-town breakfast stall at dawn",
+      "A park path carpeted with fallen leaves",
+      "A night street reflecting neon after rain",
+      "A country rice-paddy lane in summer",
+      "A sun-drenched home balcony",
+      "A convenience store glowing late at night",
+      "A courtyard in full bloom"
+    ],
+    "actions": [
+      "A young woman walks slowly toward us, bag in hand",
+      "An old man in a rattan chair leafs through a photo album",
+      "An orange cat stretches and stands up",
+      "A young man turns toward the sound and smiles",
+      "A child chases bubbles, running joyfully",
+      "A woman in a qipao glides by, fan in hand",
+      "A singer closes their eyes, lost in song",
+      "A painter flings bold strokes onto the canvas",
+      "A traveler pauses to gaze into the distance",
+      "A pour-over coffee raises wisps of steam"
+    ],
+    "moods": [
+      "warm and healing, soft natural light, slice-of-life documentary feel",
+      "suspenseful and tense, cold tones, heavy shadows",
+      "romantic and dreamy, warm golden backlight, shallow depth of field",
+      "epic and vast, grand scale, stirring",
+      "fresh and natural, bright daylight, airy palette",
+      "retro and nostalgic, film-grain texture",
+      "urban solitude, neon nightscape, wet reflections",
+      "lively and joyful, brisk rhythm, vivid colors",
+      "serene and ethereal, minimalist composition, thin mist",
+      "mysterious and dreamlike, volumetric light, floating dust"
+    ]
+  }
+}

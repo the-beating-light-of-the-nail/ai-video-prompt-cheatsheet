@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Direct AI Like a Film Director · AI Video Camera-Move Prompt Cheatsheet",
+    "description": "One sentence is all it takes to direct AI like a film director: 25 camera-move prompts, each with a video demo and a copy-ready template — write cinematic prompts from zero experience."
+  },
+  "categories": {
+    "all": "All",
+    "basics": "Basics",
+    "cinematic": "Cinematic",
+    "director": "Director styles"
+  },
+  "hero": {
+    "badge": "AI Video Prompt Cheatsheet",
+    "titlePre": "One line is all it takes to ",
+    "titleEm": "direct AI",
+    "titlePost": " into cinematic shots",
+    "subtitle": "25 camera-move prompts · video demo for every one · copy and use instantly",
+    "cta": "Start learning camera moves",
+    "navGallery": "See it in action",
+    "navToolbox": "Toolbox",
+    "navTips": "Writing tips",
+    "note": "▲ Background demo · Circular Tracking Shot · muted loop",
+    "langAria": "Switch language"
+  },
+  "gallery": {
+    "eyebrow": "Showreel",
+    "title": "See it in action",
+    "hint": "Hover to preview · click to jump to the breakdown and prompts",
+    "viewAll": "View all {count} ↘",
+    "more": "{count} more",
+    "previewBadge": "▶ Preview"
+  },
+  "cards": {
+    "eyebrow": "Learn",
+    "title": "25 camera moves, broken down one by one",
+    "desc": "Watch the video to get the feel, then copy the prompt and swap what's in [brackets] for your own subject and scene.",
+    "countLine": "{count} examples",
+    "searching": "searching “{query}”",
+    "clear": "clear",
+    "categoryPrefix": "category: {category}",
+    "emptyTitle": "No matching camera move — try another keyword (Chinese or English both work)",
+    "emptyReset": "Reset filters",
+    "allLabel": "All"
+  },
+  "toolbox": {
+    "eyebrow": "Toolbox",
+    "title": "Toolbox",
+    "desc": "Got the moves? Pick up parts here: universal negative constraints + a four-slot prompt assembler"
+  },
+  "card": {
+    "copy": "Copy",
+    "translatedMark": " (translated)",
+    "translatedTitle": "English name translated by this site; the source repo only provides the Chinese name",
+    "combo": "Combo: {note}",
+    "comboTitle": "Shot combination noted in the source file",
+    "whenLabel": "When to use: ",
+    "tipLabel": "⚠️ Pro tip: ",
+    "promptLabel": "📋 Prompt",
+    "promptLangAria": "Switch prompt language",
+    "zhToggle": "中文",
+    "enToggle": "EN",
+    "templateZh": "Template · 中文",
+    "templateEn": "Template",
+    "exampleZh": "Example prompt · 中文",
+    "exampleEn": "Example prompt",
+    "lessonTitle": "📷 Mini photography lesson"
+  },
+  "video": {
+    "playAria": "Play the camera-move demo video",
+    "lazyHint": "Click to play · loads on demand",
+    "fallbackPre": "Your browser can't play embedded video — ",
+    "fallbackLink": "open it in the online gallery",
+    "galleryLink": "Online gallery ↗"
+  },
+  "search": {
+    "placeholder": "Search moves / keywords, e.g. “dolly” or 推…",
+    "aria": "Search camera-move prompts",
+    "clearTitle": "Clear search"
+  },
+  "tabs": {
+    "aria": "Filter by category"
+  },
+  "negative": {
+    "title": "🚫 Universal negative prompts",
+    "desc": "Copy a constraint into your prompt's constraint slot to avoid stray text, watermarks, and identity drift",
+    "langToggle": "Toggle Chinese/English",
+    "copyAll": "Copy all",
+    "copiedAll": "All copied ✓",
+    "ruleToggle": "💡 Why not just write “no blur / no extra fingers”? Open for the negation rule",
+    "ruleIntro": "(naming a flaw plants it)",
+    "rulePositivePre": "The safer move is to lock the frame positively, e.g.: "
+  },
+  "assembler": {
+    "title": "🧩 Prompt assembler",
+    "desc": "Pick one option per dropdown to assemble a ready-to-use prompt skeleton; movement options come straight from the 25 examples above",
+    "random": "🎲 Randomize",
+    "labelMove": "Camera move",
+    "labelScene": "Scene",
+    "labelAction": "Subject action",
+    "labelMood": "Mood",
+    "resultLabel": "Assembled result",
+    "copy": "Copy",
+    "copied": "Copied ✓",
+    "withNegative": "Append the universal negative constraint “no new subtitles, watermark, or unrelated text.”",
+    "templateHint": "📐 Universal template for this move (paste the assembled result into it)",
+    "tipsTitle": "📝 Don't forget the five writing principles",
+    "tips": [
+      "Put the camera-move instruction first — never buried mid-description",
+      "Spell out both the starting frame and the ending frame",
+      "Add one speed word: slow / steady / fast",
+      "Camera move + mood keyword is the golden pair",
+      "For clips under 15 seconds, use at most 1–2 camera moves"
+    ]
+  },
+  "extras": {
+    "tipsTitle": "🧠 Five principles for better prompts",
+    "tipsDesc": "Knowing which moves exist is vocabulary; knowing how to write the prompt is grammar — the five below are quoted from the source repo",
+    "glossaryTitle": "🎥 Director-grade glossary",
+    "glossaryDesc": "{count} bilingual terms: camera moves, framing, light, lens feel, action, FX, sound, reference tags (click to expand)",
+    "glossaryCount": "{count} terms",
+    "allLabel": "All",
+    "copy": "Copy",
+    "slopTitle": "🩹 Cliché rescue room",
+    "tableBad": "Don't write (cliché)",
+    "tableGood": "Write this instead (observable detail)",
+    "templatesTitle": "📐 Advanced structure templates",
+    "templatesDesc": "For advanced users: long-prompt skeletons like reference-image locking and timeline storyboards (from Seedance 2.0 Skill OS)"
+  },
+  "footer": {
+    "sub": "Pile on too many moves and the AI can't keep up — for complex shot language, generate multiple clips and stitch them in post",
+    "sourcesTitle": "🫡 Data sources & credits",
+    "source1Author": " (author: AI尹小歪)",
+    "source1Body": "Core data source: the plain-language breakdowns, universal templates, example prompts, pro tips, usage advice, and five writing principles for all 25 camera moves are quoted verbatim from this repo; demo videos and poster frames come from its",
+    "source1Gallery": "online gallery",
+    "source1Tail": ". English prompts and the mini photography lessons were written by this site.",
+    "source2Note": " (local source file sd2prompt-readme.md)",
+    "source2Body": "Advanced data source: negative/constraint prompts, the director-grade glossary, the cliché rescue room, and structure templates are quoted from its references/vocab/zh.md, vocab/en.md, anti-slop-lexicon.md, and README (verbatim, bilingual).",
+    "source3Body": "Tooling reference (prompt generator / scorer): its README is project documentation without directly quotable video prompts; no prompt data was extracted from this repo.",
+    "bottom": "AI Video Camera-Move Prompt Cheatsheet · static site (Next.js + Tailwind CSS) · prompt copyrights belong to their original authors; this site is a study compilation"
+  }
+}

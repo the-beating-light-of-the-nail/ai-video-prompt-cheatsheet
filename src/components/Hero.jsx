@@ -1,6 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+'use client';
 
-const HERO_VIDEO = '/videos/video-13.mp4';
+import { useEffect, useRef, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { LOCALES } from '@/i18n/routing';
+
+const HERO_VIDEO =
+  'https://yinxiaowai.github.io/awesome-ai-video-camera-movement-prompts/assets/videos/video-13.mp4';
 const HERO_POSTER = '/posters/video-13.jpg';
 
 /** 响应式媒体查询（SSR 安全：挂载后才返回真实值） */
@@ -16,11 +21,45 @@ function useMediaQuery(query) {
   return matches;
 }
 
+/** 语言切换：可爬取的 <a> 链接，同时是 hreflang 的可见入口 */
+function LanguageSwitcher() {
+  const t = useTranslations('hero');
+  const locale = useLocale();
+  const labels = { 'zh-CN': '中文', en: 'EN' };
+
+  return (
+    <span className="flex items-center gap-2" aria-label={t('langAria')}>
+      {LOCALES.map((loc, i) => (
+        <span key={loc} className="flex items-center gap-2">
+          {i > 0 && (
+            <span aria-hidden="true" className="text-white/15">
+              ·
+            </span>
+          )}
+          <a
+            href={`/${loc}`}
+            hrefLang={loc}
+            aria-current={locale === loc ? 'true' : undefined}
+            className={
+              locale === loc
+                ? 'font-medium text-gold'
+                : 'transition-colors duration-200 hover:text-gold'
+            }
+          >
+            {labels[loc]}
+          </a>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /**
  * 首屏 Hero（视觉征服）：全屏深色背景 + 环绕镜头自动播放静音循环视频，
  * 叠加半透明渐变遮罩。移动端与「减少动态」偏好下降级为海报图，省流量也省眼睛。
  */
 export default function Hero() {
+  const t = useTranslations('hero');
   const videoRef = useRef(null);
   const isMobile = useMediaQuery('(max-width: 767px)');
   const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
@@ -56,6 +95,7 @@ export default function Hero() {
             className="h-full w-full object-cover"
           />
         ) : (
+          // eslint-disable-next-line @next/next/no-img-element
           <img src={HERO_POSTER} alt="" className="h-full w-full object-cover" />
         )}
       </div>
@@ -70,15 +110,17 @@ export default function Hero() {
       {/* 内容 */}
       <div className="relative z-10 px-4 py-24 text-center sm:px-6">
         <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.35em] text-mist backdrop-blur-sm sm:text-[11px]">
-          AI Video Prompt Cheatsheet
+          {t('badge')}
         </p>
 
         <h1 className="mx-auto mt-7 max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
-          用一句话，<span className="text-gold">指挥 AI</span> 拍出电影感
+          {t('titlePre')}
+          <span className="text-gold">{t('titleEm')}</span>
+          {t('titlePost')}
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
-          25 个运镜提示词 · 每个都有视频示范 · 一键复制即用
+          {t('subtitle')}
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-5">
@@ -86,7 +128,7 @@ export default function Hero() {
             href="#cards"
             className="group inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-night shadow-[0_0_48px_rgba(245,166,35,0.35)] transition-all duration-200 hover:bg-gold-bright hover:shadow-[0_0_64px_rgba(245,166,35,0.5)]"
           >
-            开始学运镜
+            {t('cta')}
             <span className="transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true">
               ↓
             </span>
@@ -94,27 +136,31 @@ export default function Hero() {
 
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-mist">
             <a href="#gallery" className="transition-colors duration-200 hover:text-gold">
-              先看效果
+              {t('navGallery')}
             </a>
             <span aria-hidden="true" className="text-white/15">
               ·
             </span>
             <a href="#toolbox" className="transition-colors duration-200 hover:text-gold">
-              工具箱
+              {t('navToolbox')}
             </a>
             <span aria-hidden="true" className="text-white/15">
               ·
             </span>
             <a href="#tips" className="transition-colors duration-200 hover:text-gold">
-              写作心法
+              {t('navTips')}
             </a>
+            <span aria-hidden="true" className="text-white/15">
+              ·
+            </span>
+            <LanguageSwitcher />
           </nav>
         </div>
       </div>
 
       {/* 底部角落提示：正在示范的运镜 */}
       <p className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 whitespace-nowrap text-[10px] tracking-wider text-mist/70 sm:block">
-        ▲ 背景示范 · 环绕镜头 Circular Tracking Shot · 静音循环
+        {t('note')}
       </p>
     </section>
   );

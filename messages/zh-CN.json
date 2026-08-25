@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "用一句话，指挥 AI 拍出电影感 · AI 视频运镜提示词速查表",
+    "description": "用一句话，指挥 AI 拍出电影感：25 个运镜提示词，每个都有视频示范与可复制模板，零基础也能写出电影感提示词。"
+  },
+  "categories": {
+    "all": "全部",
+    "basics": "基础运镜",
+    "cinematic": "电影级进阶",
+    "director": "大师导演风格"
+  },
+  "hero": {
+    "badge": "AI Video Prompt Cheatsheet",
+    "titlePre": "用一句话，",
+    "titleEm": "指挥 AI",
+    "titlePost": "拍出电影感",
+    "subtitle": "25 个运镜提示词 · 每个都有视频示范 · 一键复制即用",
+    "cta": "开始学运镜",
+    "navGallery": "先看效果",
+    "navToolbox": "工具箱",
+    "navTips": "写作心法",
+    "note": "▲ 背景示范 · 环绕镜头 Circular Tracking Shot · 静音循环",
+    "langAria": "切换语言"
+  },
+  "gallery": {
+    "eyebrow": "Showreel",
+    "title": "先看效果",
+    "hint": "悬停即可预览 · 点击跳到这个运镜的讲解和提示词",
+    "viewAll": "查看全部 {count} 个 ↘",
+    "more": "还有 {count} 个",
+    "previewBadge": "▶ 预览"
+  },
+  "cards": {
+    "eyebrow": "Learn",
+    "title": "25 个运镜，逐个拆解",
+    "desc": "先看视频记住感觉，再复制提示词去套用——【】里的内容换成你自己的主体和场景就行。",
+    "countLine": "共 {count} 条案例",
+    "searching": "搜索「{query}」",
+    "clear": "清空",
+    "categoryPrefix": "分类「{category}」",
+    "emptyTitle": "没有找到匹配的运镜，换个关键词试试（中英文都行）",
+    "emptyReset": "重置筛选",
+    "allLabel": "全部"
+  },
+  "toolbox": {
+    "eyebrow": "Toolbox",
+    "title": "工具箱",
+    "desc": "看会了效果，来这里取配件：通用负面约束 + 四选一的提示词拼装器"
+  },
+  "card": {
+    "copy": "一键复制",
+    "translatedMark": "（译）",
+    "translatedTitle": "英文名为本站翻译，源文件仅提供中文名",
+    "combo": "组合：{note}",
+    "comboTitle": "源文件标注的镜头组合方式",
+    "whenLabel": "什么时候用：",
+    "tipLabel": "⚠️ 实战小贴士：",
+    "promptLabel": "📋 提示词",
+    "promptLangAria": "切换提示词语言",
+    "zhToggle": "中文",
+    "enToggle": "EN",
+    "templateZh": "通用模板",
+    "templateEn": "通用模板 · EN",
+    "exampleZh": "示例 Prompt",
+    "exampleEn": "示例 Prompt · EN",
+    "lessonTitle": "📷 摄影小课堂"
+  },
+  "video": {
+    "playAria": "播放运镜示范视频",
+    "lazyHint": "点击播放 · 按需加载",
+    "fallbackPre": "您的浏览器不支持视频播放，可",
+    "fallbackLink": "打开在线画廊观看",
+    "galleryLink": "在线画廊 ↗"
+  },
+  "search": {
+    "placeholder": "搜索运镜 / 关键词，如「推」或 dolly…",
+    "aria": "搜索运镜提示词",
+    "clearTitle": "清空搜索"
+  },
+  "tabs": {
+    "aria": "按分类筛选"
+  },
+  "negative": {
+    "title": "🚫 通用负面提示词",
+    "desc": "复制约束语贴到提示词的约束位，避免画面文字、水印和外形漂移",
+    "langToggle": "切换中/英",
+    "copyAll": "全部复制",
+    "copiedAll": "全部已复制 ✓",
+    "ruleToggle": "💡 为什么不建议乱写「no blur / no extra fingers」？点开看否定规则",
+    "ruleIntro": "（点名缺陷反而会种下缺陷）",
+    "rulePositivePre": "更稳的做法是正向锁定画面，例如："
+  },
+  "assembler": {
+    "title": "🧩 提示词拼装器",
+    "desc": "四个下拉各选一项，自动拼成可用的中文提示词骨架；运镜选项全部来自上方 25 条案例",
+    "random": "🎲 随机一组",
+    "labelMove": "运镜",
+    "labelScene": "场景",
+    "labelAction": "主体动作",
+    "labelMood": "氛围",
+    "resultLabel": "拼装结果",
+    "copy": "一键复制",
+    "copied": "已复制 ✓",
+    "withNegative": "末尾追加通用负面约束「不要新增字幕、水印或无关文字。」",
+    "templateHint": "📐 该运镜的通用模板（把拼装结果填进去更好用）",
+    "tipsTitle": "📝 别忘了源文件的五条心法",
+    "tips": [
+      "运镜指令放在最前面，别埋在描述中间",
+      "写清「起点」和「终点」两个画面",
+      "给一个速度词：缓慢 / 匀速 / 快速",
+      "运镜 + 情绪关键词是黄金搭档",
+      "15 秒以内的视频最多用 1-2 种运镜"
+    ]
+  },
+  "extras": {
+    "tipsTitle": "🧠 写好提示词的五条心法",
+    "tipsDesc": "知道有哪些运镜是「词汇量」，怎么写好提示词才是「造句能力」——以下五条为源文件原文",
+    "glossaryTitle": "🎥 导演级术语速查",
+    "glossaryDesc": "{count} 条中英对照词汇：运镜、景别、光线、镜头感、动作、特效、声音、参考标签（点击展开）",
+    "glossaryCount": "{count} 条",
+    "allLabel": "全部",
+    "copy": "复制",
+    "slopTitle": "🩹 套话急救室",
+    "tableBad": "这样写（套话）",
+    "tableGood": "改成这样（可观察的细节）",
+    "templatesTitle": "📐 进阶结构模板",
+    "templatesDesc": "适合想进阶的同学：参考图锁定、时间轴分镜等长提示词骨架（引自 Seedance 2.0 Skill OS 中文词汇表原文）"
+  },
+  "footer": {
+    "sub": "堆太多运镜 AI 反而顾不过来，想要复杂镜头语言就拆成多条分别生成",
+    "sourcesTitle": "🫡 数据来源与致谢",
+    "source1Author": "（作者：AI尹小歪）",
+    "source1Body": "核心数据源：25 条运镜案例的大白话讲解、通用模板、示例 Prompt、实战小贴士、使用建议与五条心法均原文引自该仓库；视频案例与海报帧来自其",
+    "source1Gallery": "在线画廊",
+    "source1Tail": "。英文提示词与「摄影小课堂」为本站补写。",
+    "source2Note": "（本地源文件 sd2prompt-readme.md）",
+    "source2Body": "进阶数据源：负面/约束提示词、导演级术语速查、套话急救室与结构模板，引自其 references/vocab/zh.md、vocab/en.md、anti-slop-lexicon.md 与 README（原文引用，中英对照）。",
+    "source3Body": "工具类参考（提示词生成器 / 打分器）：其 README 为项目说明，不含可直接引用的视频提示词，本站未从该仓库提取提示词数据。",
+    "bottom": "AI 视频运镜提示词速查表 · 静态站点（Next.js + Tailwind CSS）· 提示词版权归原作者所有，本站仅作学习整理"
+  }
+}

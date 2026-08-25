@@ -1,10 +1,12 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import { copyText } from '../lib/clipboard';
 
 /**
  * 一键复制按钮：成功后变绿显示「已复制 ✓」，1.5s 后恢复。
  */
-export default function CopyButton({ text, label = '复制', copiedLabel = '已复制 ✓', title, className = '' }) {
+export default function CopyButton({ text, label, copiedLabel, title, className = '' }) {
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
   const timer = useRef(null);
@@ -35,10 +37,10 @@ export default function CopyButton({ text, label = '复制', copiedLabel = '已�
     <button
       type="button"
       onClick={handleClick}
-      title={title || (copied ? '已复制' : '复制到剪贴板')}
+      title={title || (copied ? copiedLabel : label)}
       className={`shrink-0 rounded-md border px-2.5 py-1 text-xs font-medium leading-none transition-colors duration-200 ${state} ${className}`}
     >
-      {failed ? '复制失败' : copied ? copiedLabel : label}
+      {failed ? '✕' : copied ? copiedLabel : label}
     </button>
   );
 }

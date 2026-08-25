@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 /**
  * 卡片视频区（视频优先，占卡片上半身）：
@@ -6,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
  * 点击后才挂载并加载播放（懒加载，preload="none"），16:9 占满卡片宽度。
  */
 export default function VideoPanel({ src, poster, gallery }) {
+  const t = useTranslations('video');
   const [active, setActive] = useState(false);
   const videoRef = useRef(null);
 
@@ -23,9 +27,10 @@ export default function VideoPanel({ src, poster, gallery }) {
       <button
         type="button"
         onClick={() => setActive(true)}
-        aria-label="播放运镜示范视频"
+        aria-label={t('playAria')}
         className="group relative block w-full cursor-pointer overflow-hidden"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={poster}
           alt=""
@@ -38,7 +43,7 @@ export default function VideoPanel({ src, poster, gallery }) {
             ▶
           </span>
         </span>
-        <span className="absolute bottom-2.5 left-3 text-[10px] tracking-wider text-paper/70">点击播放 · 按需加载</span>
+        <span className="absolute bottom-2.5 left-3 text-[10px] tracking-wider text-paper/70">{t('lazyHint')}</span>
       </button>
     );
   }
@@ -55,11 +60,10 @@ export default function VideoPanel({ src, poster, gallery }) {
         src={src}
         className="aspect-video w-full bg-black object-cover"
       >
-        您的浏览器不支持视频播放，可
+        {t('fallbackPre')}
         <a href={gallery} target="_blank" rel="noreferrer" className="text-gold hover:underline">
-          打开在线画廊观看
+          {t('fallbackLink')}
         </a>
-        。
       </video>
       <a
         href={gallery}
@@ -67,7 +71,7 @@ export default function VideoPanel({ src, poster, gallery }) {
         rel="noreferrer"
         className="absolute right-2.5 top-2.5 rounded bg-night/70 px-2 py-0.5 text-[10px] text-paper/70 backdrop-blur-sm transition-colors duration-200 hover:text-gold"
       >
-        在线画廊 ↗
+        {t('galleryLink')}
       </a>
     </div>
   );

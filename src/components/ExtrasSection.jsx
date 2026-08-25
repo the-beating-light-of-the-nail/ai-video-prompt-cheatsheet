@@ -1,15 +1,20 @@
+'use client';
+
 import { useMemo, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import CopyButton from './CopyButton.jsx';
 
 /** 术语速查：按功能分组的导演级中英词汇（引自 Seedance 2.0 Skill OS 词汇表原文） */
 function Glossary({ glossary }) {
+  const t = useTranslations('extras');
+  const isZh = useLocale() === 'zh-CN';
   const functions = useMemo(() => {
     const seen = new Set();
-    for (const g of glossary) seen.add(g.function);
-    return ['全部', ...Array.from(seen)];
+    for (const g of glossary) seen.add(g.fn);
+    return ['all', ...Array.from(seen)];
   }, [glossary]);
-  const [active, setActive] = useState('全部');
-  const list = active === '全部' ? glossary : glossary.filter((g) => g.function === active);
+  const [active, setActive] = useState('all');
+  const list = active === 'all' ? glossary : glossary.filter((g) => g.fn === active);
 
   return (
     <div className="mt-4">
@@ -25,24 +30,24 @@ function Glossary({ glossary }) {
                 : 'border-white/10 bg-white/[0.03] text-mist hover:border-white/20 hover:text-paper'
             }`}
           >
-            {fn}
+            {fn === 'all' ? t('allLabel') : fn}
           </button>
         ))}
-        <span className="ml-auto font-mono text-[11px] text-mist/70">{list.length} 条</span>
+        <span className="ml-auto font-mono text-[11px] text-mist/70">{t('glossaryCount', { count: list.length })}</span>
       </div>
       <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3">
         {list.map((g) => (
           <li
-            key={`${g.function}-${g.zh}`}
+            key={`${g.fn}-${g.primary}`}
             className="group flex items-center justify-between gap-2 rounded-lg border border-white/[0.06] bg-night/50 px-3 py-2 transition-colors duration-200 hover:border-white/[0.14]"
           >
             <div className="min-w-0">
-              <p className="truncate text-[13px] text-paper/90">{g.zh}</p>
-              <p className="mt-0.5 truncate text-[11px] text-mist/80">{g.en}</p>
+              <p className="truncate text-[13px] text-paper/90">{g.primary}</p>
+              <p className="mt-0.5 truncate text-[11px] text-mist/80">{g.secondary}</p>
             </div>
             <CopyButton
-              text={`${g.zh}（${g.en}）`}
-              label="复制"
+              text={isZh ? `${g.primary}（${g.secondary}）` : `${g.primary} (${g.secondary})`}
+              label={t('copy')}
               className="opacity-0 transition-opacity duration-200 group-hover:opacity-100 focus:opacity-100"
             />
           </li>
@@ -66,19 +71,18 @@ function Panel({ id, children }) {
 
 /**
  * 进阶资料区：写作五心法 / 导演级术语速查 / 套话急救室 / 结构模板。
- * 数据全部来自源文件原文（见 extras.json 的 source 字段与页脚致谢）。
+ * 数据全部来自源文件原文（见 extras 数据的 source 字段与页脚致谢）。
  */
 export default function ExtrasSection({ extras }) {
+  const t = useTranslations('extras');
   const [glossaryOpen, setGlossaryOpen] = useState(false);
 
   return (
     <div className="space-y-6">
       {/* 五条心法 */}
       <Panel id="tips">
-        <h2 className="text-lg font-semibold text-white sm:text-xl">🧠 写好提示词的五条心法</h2>
-        <p className="mt-1 text-xs text-mist sm:text-sm">
-          知道有哪些运镜是「词汇量」，怎么写好提示词才是「造句能力」——以下五条为源文件原文
-        </p>
+        <h2 className="text-lg font-semibold text-white sm:text-xl">{t('tipsTitle')}</h2>
+        <p className="mt-1 text-xs text-mist sm:text-sm">{t('tipsDesc')}</p>
         <ol className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
           {extras.writingTips.map((tip, i) => (
             <li
@@ -104,9 +108,9 @@ export default function ExtrasSection({ extras }) {
           className="flex w-full items-center justify-between gap-2 text-left"
         >
           <span>
-            <span className="text-lg font-semibold text-white sm:text-xl">🎥 导演级术语速查</span>
+            <span className="text-lg font-semibold text-white sm:text-xl">{t('glossaryTitle')}</span>
             <span className="mt-1 block text-xs text-mist sm:text-sm">
-              {extras.glossary.length} 条中英对照词汇：运镜、景别、光线、镜头感、动作、特效、声音、参考标签（点击展开）
+              {t('glossaryDesc', { count: extras.glossary.length })}
             </span>
           </span>
           <span
@@ -121,7 +125,7 @@ export default function ExtrasSection({ extras }) {
 
       {/* 套话急救室 */}
       <Panel id="slop">
-        <h2 className="text-lg font-semibold text-white sm:text-xl">🩹 套话急救室</h2>
+        <h2 className="text-lg font-semibold text-white sm:text-xl">{t('slopTitle')}</h2>
         <p className="mt-1 text-xs leading-relaxed text-mist sm:text-sm">{extras.slopIntro}</p>
 
         <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-2">
@@ -134,7 +138,7 @@ export default function ExtrasSection({ extras }) {
           <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] p-3.5">
             <div className="flex items-center justify-between gap-2">
               <p className="text-xs font-medium text-emerald-300">{extras.workedExample.good_label}</p>
-              <CopyButton text={extras.workedExample.good} />
+              <CopyButton text={extras.workedExample.good} label={t('copy')} />
             </div>
             <pre className="mt-2 whitespace-pre-wrap break-words font-mono text-[12.5px] leading-relaxed text-emerald-100/85">
               {extras.workedExample.good}
@@ -148,8 +152,8 @@ export default function ExtrasSection({ extras }) {
             <table className="w-full min-w-[480px] table-fixed text-left text-xs">
               <thead>
                 <tr className="bg-night/70 text-mist">
-                  <th className="w-1/3 px-3 py-2 font-medium">这样写（套话）</th>
-                  <th className="px-3 py-2 font-medium">改成这样（可观察的细节）</th>
+                  <th className="w-1/3 px-3 py-2 font-medium">{t('tableBad')}</th>
+                  <th className="px-3 py-2 font-medium">{t('tableGood')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -171,20 +175,18 @@ export default function ExtrasSection({ extras }) {
 
       {/* 结构模板 */}
       <Panel id="templates">
-        <h2 className="text-lg font-semibold text-white sm:text-xl">📐 进阶结构模板</h2>
-        <p className="mt-1 text-xs text-mist sm:text-sm">
-          适合想进阶的同学：参考图锁定、时间轴分镜等长提示词骨架（引自 Seedance 2.0 Skill OS 中文词汇表原文）
-        </p>
+        <h2 className="text-lg font-semibold text-white sm:text-xl">{t('templatesTitle')}</h2>
+        <p className="mt-1 text-xs text-mist sm:text-sm">{t('templatesDesc')}</p>
         <div className="mt-4 grid grid-cols-1 gap-3 xl:grid-cols-3">
-          {extras.templates.map((t) => (
-            <div key={t.name} className="flex flex-col rounded-lg border border-white/[0.06] bg-night/50 p-3.5">
+          {extras.templates.map((tpl) => (
+            <div key={tpl.name} className="flex flex-col rounded-lg border border-white/[0.06] bg-night/50 p-3.5">
               <div className="flex items-center justify-between gap-2">
-                <p className="text-sm font-medium text-paper/90">{t.name}</p>
-                <CopyButton text={t.text} />
+                <p className="text-sm font-medium text-paper/90">{tpl.name}</p>
+                <CopyButton text={tpl.text} label={t('copy')} />
               </div>
-              <p className="mt-1 text-[11px] text-mist/80">{t.desc}</p>
+              <p className="mt-1 text-[11px] text-mist/80">{tpl.desc}</p>
               <pre className="mt-2.5 whitespace-pre-wrap break-words rounded-md border border-white/[0.06] bg-night/70 p-2.5 font-mono text-[12px] leading-relaxed text-paper/80">
-                {t.text}
+                {tpl.text}
               </pre>
             </div>
           ))}
