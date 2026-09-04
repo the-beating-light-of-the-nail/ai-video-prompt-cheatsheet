@@ -12,3 +12,6 @@ export default function sitemap() {
     },
   }));
 }
+
+// 静态导出要求显式声明（构建时生成 sitemap.xml）
+export const dynamic = 'force-static';

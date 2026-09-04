@@ -6,3 +6,6 @@ export default function robots() {
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
+
+// 静态导出要求显式声明（构建时生成 robots.txt）
+export const dynamic = 'force-static';
